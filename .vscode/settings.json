@@ -1,0 +1,13 @@
+{
+  "css.validate": false,
+  "scss.validate": false,
+  "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.stylelint": true,
+    "source.fixAll.eslint": true,
+  },
+  "stylelint.validate": ["css", "scss", "vue"],
+  "stylelint.snippet": ["css", "scss", "vue"],
+  "npm-intellisense.inportES6": true,
+  "npm-intellisense.scanDevDependencies": true,
+}
