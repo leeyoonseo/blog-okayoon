@@ -1,14 +1,14 @@
 <template>
   <div>
-    <h1>Base</h1>
-    <div>
-      <router-view />
-    </div>
+    <h1>Deep22222</h1>
+    <base-test />
   </div>
 </template>
 <script lang="ts">
 export default {
-  name: 'BaseLayout',
+  layout: 'base',
+  name: 'deepTwo',
+  title: '딥투',
 };
 </script>
 <script setup lang="ts"></script>

@@ -1,14 +1,13 @@
 <template>
   <div>
-    <h1>Base</h1>
-    <div>
-      <router-view />
-    </div>
+    <h1>A</h1>
+    <base-test />
   </div>
 </template>
 <script lang="ts">
 export default {
-  name: 'BaseLayout',
+  name: 'aPage',
+  title: '에이',
 };
 </script>
 <script setup lang="ts"></script>

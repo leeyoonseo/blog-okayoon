@@ -10,8 +10,8 @@
 <script lang="ts">
 export default {
   name: 'indexPage',
-  title: 'OKAYOON | HOME',
   layout: 'base',
+  title: '인덱스',
 };
 </script>
 <script setup lang="ts"></script>

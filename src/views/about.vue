@@ -1,14 +1,13 @@
 <template>
   <div>
-    <h1>Base</h1>
-    <div>
-      <router-view />
-    </div>
+    <h1>about</h1>
   </div>
 </template>
 <script lang="ts">
 export default {
-  name: 'BaseLayout',
+  name: 'aboutPage',
+  layout: 'test',
+  title: '어바웃',
 };
 </script>
 <script setup lang="ts"></script>

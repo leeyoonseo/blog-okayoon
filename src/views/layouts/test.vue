@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Base</h1>
+    <h1>Test</h1>
     <div>
       <router-view />
     </div>
@@ -8,7 +8,7 @@
 </template>
 <script lang="ts">
 export default {
-  name: 'BaseLayout',
+  name: 'TestLayout',
 };
 </script>
 <script setup lang="ts"></script>
