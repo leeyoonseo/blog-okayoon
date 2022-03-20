@@ -7,6 +7,7 @@
 <script lang="ts">
 export default {
   name: 'aPage',
+  layout: 'test',
   title: '에이',
 };
 </script>

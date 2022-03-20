@@ -7,6 +7,7 @@
 <script lang="ts">
 export default {
   name: 'DPage',
+  layout: 'test',
   title: '디',
 };
 </script>

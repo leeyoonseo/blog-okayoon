@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
-import kebabCase from 'lodash/kebabCase';
+// import kebabCase from 'lodash/kebabCase';
 
-import BaseLayout from '@/views/layouts/base.vue';
-import Index from '@/views/index.vue';
+// import BaseLayout from '@/views/layouts/base.vue';
+// import Index from '@/views/index.vue';
 
 const exclude = ['layouts'];
-const routes: Array<RouteRecordRaw> = [];
+let routes: Array<RouteRecordRaw> = [];
 
 // const routes: Array<RouteRecordRaw> = [
 //   {
@@ -23,11 +23,10 @@ const routes: Array<RouteRecordRaw> = [];
 //     ],
 //   },
 // ];
-const initialValue: any = []; // TODO: type..
+// const initialValue: any = []; // TODO: type..
 const views = require.context('@/views/', true, /[a-z]\w+\.vue$/);
 
-views.keys().reduce((prev, current) => {
-  // console.log('????', prev, current);
+routes = views.keys().reduce((prev, current) => {
   const filePathArr = current.replace('./', '').split('/');
   // ['layout', 'base.vue'], ['index.vue']
 
@@ -37,79 +36,81 @@ views.keys().reduce((prev, current) => {
   // about.vue, index.vue
 
   const isDepth = filePathArr.length >= 1;
+  const {
+    default: { layout, name, title },
+  } = views(current);
 
-  // const fileName = fileFullName && kebabCase(fileFullName.replace('.vue', ''));
-  // const fileName = fileFullName && kebabCase(fileFullName.replace('.vue', ''));
-  // about, index
-
-  // const filePathStr = isFirstDepth ? `/${fileName}` : `/${filePathArr[0]}`;
-  // const fileFullPathStr = !isDepth ? `${fileName}` : `${filePathArr.join('/')}`;
-  // about, index, test, test/deep
-
-  // console.log(filePathArr);
-  // ['test'], ['test','deep']
-
-  let result = {};
+  let route: RouteRecordRaw;
   // 뎁스가 있을 경우
   if (isDepth) {
-    const {
-      default: { layout, name, title },
-    } = views(current);
-
     // TODO: layout이 없을경우 에러보이게하기
-    // if (!layout)
-    // console.log(fileFullName);
+    if (!layout) {
+      // There is no layout component
+    }
     const path = filePathArr.shift();
-    const remainPath = filePathArr.join('/');
-    const fileName = fileFullName?.replace('.vue', '');
-    // console.log('path', path);
-    const childrenPath = remainPath
-      ? `@/views/${path}/${remainPath}/${fileName}.vue`
-      : `@/views/${path}/${fileName}.vue`;
-    // console.log(childrenPath);
+    // test
 
-    result = {
-      path: `/${path}`,
+    const subPath = filePathArr.join('/');
+    // deep/aa, deep
+
+    const fileName = fileFullName?.replace('.vue', '');
+    // deepDeep aa
+
+    const childrenPath = subPath ? `@/views/${path}/${subPath}/${fileName}.vue` : `@/views/${path}/${fileName}.vue`;
+
+    if (prev.find((opt) => opt.path === `/${path}`)) {
+      prev.forEach((opt) => {
+        // console.log('fileName:', fileName, opt);
+        if (opt.path === `/${path}`) {
+          opt.children?.push({
+            meta: {
+              title: title || 'OKAYOON',
+            },
+            path: `/${subPath || fileName}`,
+            component: () => import(childrenPath),
+          });
+        }
+      });
+    } else {
+      console.log('fileName:', fileName, subPath);
+      route = {
+        path: `/${path}`,
+        name: name || fileName,
+        component: () => import(`@/views/layouts/${layout}.vue`),
+        meta: {
+          title: 'OKAYOON',
+        },
+        children: [
+          {
+            meta: {
+              title: title || 'OKAYOON',
+            },
+            path: `/${subPath || fileName}`,
+            component: () => import(childrenPath),
+          },
+        ],
+      };
+
+      return prev.concat(route);
+    }
+
+    return prev;
+  } else {
+    const fileName = fileFullName?.replace('.vue', '');
+
+    route = {
+      path: fileName === 'index' ? '/' : `/${fileName}`,
       name: name || fileName,
-      component: () => import(`@/views/layouts/${layout}.vue`),
+      component: () => import(`@/views/${fileName}.vue`),
       meta: {
         title: title || 'OKAYOON',
       },
-      children: [
-        {
-          path: `/${remainPath}`,
-          component: () => import(childrenPath),
-        },
-      ],
     };
-  } else {
-    // TODO: 원뎁스 페이지 작업할 것
-    // result = {
-    //   path: fileName === 'index' ? '/' : fileFullPathStr,
-    //   name: 'index',
-    //   // !layout ? BaseLayout :
-    //   // 레이아웃이 있으면 레이아웃
-    //   // 레이아웃이 있으면 자식 컴포넌트
-    //   // 레이아웃이 없으면 본인 컴포넌트
-    //   component: () => import(layout ? `@/views/layouts/${layout}.vue` : `@/views/${fileName}.vue`),
-    //   meta: {
-    //     title: title ? title : 'OKAYOON',
-    //   },
-    //   children: [
-    //     {
-    //       path: 'test',
-    //       component: Index,
-    //     },
-    //   ],
-    // };
+    return prev.concat(route);
   }
+}, routes);
 
-  // console.log('prev', prev);
-
-  return prev.concat(result);
-}, initialValue);
-
-console.log('result', initialValue);
+console.log('result', routes);
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
