@@ -1,6 +1,4 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
-// import kebabCase from 'lodash/kebabCase';
-
 // import BaseLayout from '@/views/layouts/base.vue';
 // import Index from '@/views/index.vue';
 
@@ -60,13 +58,13 @@ routes = views.keys().reduce((prev, current) => {
 
     if (prev.find((opt) => opt.path === `/${path}`)) {
       prev.forEach((opt) => {
-        // console.log('fileName:', fileName, opt);
         if (opt.path === `/${path}`) {
           opt.children?.push({
             meta: {
               title: title || 'OKAYOON',
             },
-            path: `/${subPath || fileName}`,
+            path:
+              subPath && !filePathArr.includes(fileName || '') ? `/${subPath}/${fileName}` : `/${subPath || fileName}`,
             component: () => import(childrenPath),
           });
         }
