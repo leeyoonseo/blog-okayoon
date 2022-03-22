@@ -1,0 +1,14 @@
+@charset 'utf-8';
+
+@import 'scss-reset/_reset.scss';
+@import '../utils/common.scss';
+
+:root {
+  @each $name, $color in $colors {
+    #{$name}: #{$color};
+  }
+}
+
+.hidden {
+
+}

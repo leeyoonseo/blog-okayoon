@@ -49,6 +49,7 @@ routes = views.keys().reduce((prevRoutes, currentRoutes) => {
       },
     };
   }
+
   return prevRoutes.concat(route);
 }, routes);
 

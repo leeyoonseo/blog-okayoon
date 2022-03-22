@@ -1,10 +1,6 @@
 <template>
   <div>
     <h1>Index</h1>
-    <layout-header />
-    <base-test />
-    <base-button />
-    <test-Template />
   </div>
 </template>
 <script lang="ts">

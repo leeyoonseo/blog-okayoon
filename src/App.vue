@@ -2,7 +2,9 @@
   <router-view />
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
+@import '@/assets/styles/base/global';
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
