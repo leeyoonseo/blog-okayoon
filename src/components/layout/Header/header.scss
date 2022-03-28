@@ -1,4 +1,12 @@
-body {
-  background: red;
+.header {
+  background: pink;
+  position: fixed;
   width: 100%;
+  z-index: 1000;
+
+  .header__menu,
+  .header__logo,
+  .header__auth {
+    display: none;
+  }
 }

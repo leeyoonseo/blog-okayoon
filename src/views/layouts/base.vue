@@ -1,9 +1,14 @@
 <template>
-  <div>
-    <layout-header />
-    <div>
+  <div class="base__layout">
+    <div class="base__header">
+      <layout-header />
+    </div>
+
+    <div class="base__container">
       <router-view />
     </div>
+
+    <div class="base__footer">footer</div>
   </div>
 </template>
 <script lang="ts">
@@ -12,4 +17,19 @@ export default {
 };
 </script>
 <script setup lang="ts"></script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.base__layout {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  overflow-x: hidden;
+  background: #fafafa;
+
+  .base__header {
+  }
+
+  .base__footer {
+    margin-top: auto;
+  }
+}
+</style>

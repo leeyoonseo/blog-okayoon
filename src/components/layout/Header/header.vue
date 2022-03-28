@@ -1,25 +1,22 @@
 <template>
-  <header>
-    <div class="header-inner">
-      <router-link to="/">
+  <header class="header">
+    <div class="header__inner">
+      <div class="header__menu">
+        <button class="header__gnb">메뉴버튼</button>
+
+        <layout-global-nav />
+      </div>
+
+      <router-link to="/" class="header__logo">
         <h1>OKAYOON</h1>
       </router-link>
 
-      <div>
-        <!-- TODO: 메뉴 -->
-        <strong>전체보기</strong>
-        <ul>
-          <li>
-            <strong>대 메뉴1</strong>
-            <ul>
-              <li>전체보기</li>
-            </ul>
-          </li>
-        </ul>
+      <div>모드</div>
+      <div>검색</div>
 
-        <ul>
-          <li>전체보기</li>
-        </ul>
+      <div class="header__auth">
+        <div>로그인</div>
+        <div>로그아웃</div>
       </div>
     </div>
   </header>
@@ -31,8 +28,4 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import './header';
-
-body {
-  background: red;
-}
 </style>
