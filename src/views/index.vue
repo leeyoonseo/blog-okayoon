@@ -1,6 +1,9 @@
 <template>
   <div>
     <h1>Index</h1>
+    <div v-for="(item, index) in 100" :key="index">
+      <p>item</p>
+    </div> 
   </div>
 </template>
 <script lang="ts">
