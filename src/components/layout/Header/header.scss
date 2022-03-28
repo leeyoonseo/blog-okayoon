@@ -3,7 +3,7 @@
   z-index: 1000;
 
   .header {
-    background: #fff;
+    background: #ffffff;
     width: 100%;
 
     .header__inner {
@@ -38,23 +38,22 @@
       }
 
       .header__search {
-        margin-left: auto;
         height: 26px;
+        margin-left: auto;
         width: 26px;
         @include bg-image('icon-search-d', 26px, 26px);
       }
 
       .header__mode {
-
         .header__mode-button {
-          vertical-align: top;
           height: 28px;
+          vertical-align: top;
           width: 28px;
-  
+
           &.light {
             @include bg-image('icon-mode-light', 28px, 28px);
           }
-  
+
           &.dark {
             @include bg-image('icon-mode-dark', 28px, 28px);
           }
@@ -72,17 +71,17 @@
 
   &.sticky {
     .header {
+      box-shadow: 0 5px 12px 0 rgb(0 0 0 / 10%);
       position: fixed;
       top: 0;
-      box-shadow: 0 5px 12px 0 rgba(0, 0, 0, 0.1);
     }
 
     // TODO: 모바일에서 체크 후 리프레시 동작에서 이상있으면 다른 방법 찾기
-    &:before {
-      display: block;
+    &::before {
       content: '';
-      width: 100%;
+      display: block;
       height: 72px;
+      width: 100%;
     }
   }
 }

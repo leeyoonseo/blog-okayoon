@@ -16,8 +16,7 @@ export default {
   name: 'BaseLayout',
 };
 </script>
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 <style lang="scss" scoped>
 .base__layout {
   display: flex;
