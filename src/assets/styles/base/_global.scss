@@ -1,7 +1,6 @@
 @charset 'utf-8';
 
-@import 'scss-reset/_reset.scss';
-@import '../utils/common.scss';
+@import '../utils/common';
 
 :root {
   @each $name, $color in $colors {
@@ -10,5 +9,5 @@
 }
 
 .hidden {
-
+  @include alternative;
 }

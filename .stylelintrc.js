@@ -1,9 +1,14 @@
 module.exports = {
   extends: [
-    'stylelint-config-standard',
+    'stylelint-config-standard-scss',
+    'stylelint-config-prettier',
+    'stylelint-config-html/vue',
+    'stylelint-config-recommended-vue'
   ],
   plugins: ['stylelint-scss', 'stylelint-order'],
+  customSyntax: "postcss-scss",
   rules: {
+    // 'string-quotes': 'single',
     'at-rule-no-unknown': null,
     'scss/at-rule-no-unknown': true,
     'order/order': ['custom-properties', 'declarations'],
@@ -20,11 +25,12 @@ module.exports = {
     'rule-empty-line-before': 'always-multi-line',
     'block-opening-brace-newline-before': 'never-single-line',
     'block-opening-brace-newline-after': 'always',
-    'block-closing-brace-newline-after': 'always',
+    // 'block-closing-brace-newline-after': 'always',
     'block-closing-brace-newline-before': 'always',
     'block-opening-brace-space-before': 'always',
     'no-descending-specificity': null,
     'value-no-vendor-prefix': null,
+    'custom-property-pattern': 'layouts',
     'selector-pseudo-element-no-unknown': [
       true,
       {
