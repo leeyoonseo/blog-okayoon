@@ -14,6 +14,8 @@
           <router-link to="/">
             <h1 class="logo">OKAYOON</h1>
           </router-link>
+          <!-- TODO: build될때 버전쓰나? -->
+          <span class="header__version">v0.0.1</span>
         </li>
 
         <li class="header__search">
