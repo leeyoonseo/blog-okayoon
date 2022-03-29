@@ -18,24 +18,7 @@
           </li>
         </ul>
 
-        <div class="sidemenu__board">
-          <ul class="board__list">
-            <li class="board__item">
-              <span class="board__item-label">total</span>
-              <span class="board__item-text">100</span>
-            </li>
-            <li class="board__item">
-              <span class="board__item-label">month</span>
-              <span class="board__item-text">100</span>
-            </li>
-            <li class="board__item">
-              <span class="board__item-label">today</span>
-              <span class="board__item-text">100</span>
-            </li>
-            <!-- <li class="board__item">이달 방문자수</li>
-            <li class="board__item">오늘 방문자수</li> -->
-          </ul>
-        </div>
+        <visitor-board />
       </div>
     </div>
   </Transition>

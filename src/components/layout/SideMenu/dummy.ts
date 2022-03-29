@@ -90,3 +90,27 @@ export const gnb: Gnb[] = [
     ],
   },
 ];
+
+// interface visitors {
+//   type: string;
+//   label: string;
+//   visitorsNum: number;
+// }
+
+// export const visitors: visitors[] = [
+//   {
+//     type: 'total',
+//     label: '총',
+//     visitorsNum: 100,
+//   },
+//   {
+//     type: 'month',
+//     label: '이번달',
+//     visitorsNum: 100,
+//   },
+//   {
+//     type: 'day',
+//     label: '오늘',
+//     visitorsNum: 100,
+//   },
+// ];

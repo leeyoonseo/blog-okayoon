@@ -42,32 +42,35 @@
         }
 
         & + .sidemenu__item {
-          margin-top: 4px;
+          margin-top: 6px;
         }
 
         &::before {
           content: '-';
           display: inline-block;
           margin-right: 5px;
+
+          // TODO: 고양이 발
+          // content: '';
+          // display: inline-block;
+          // height: 18px;
+          // margin-right: 5px;
+          // vertical-align: middle;
+          // width: 18px;
+          // @include bg-image('icon-pawprint-fill', 18px, 18px);
         }
       }
     }
 
     .sidemenu__item {
       & > .sidemenu__list {
-        margin-top: 4px;
+        margin-top: 6px;
       }
 
       a:hover {
         text-decoration: underline;
       }
     }
-  }
-
-  .sidemenu__board {
-    bottom: 0;
-    left: 0;
-    position: absolute;
   }
 }
 

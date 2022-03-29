@@ -1,0 +1,48 @@
+.visitor__board {
+  bottom: 50px;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  width: 100%;
+
+  .board__list {
+    display: flex;
+
+    .board__item {
+      & + .board__item {
+        margin-left: 8px;
+
+        &::before {
+          background: gray;
+          content: '';
+          display: inline-block;
+          height: 10px;
+          margin: 0 8px 0 4px;
+          vertical-align: middle;
+          width: 1px;
+        }
+      }
+
+      &-today {
+        .board__item-label,
+        .board__item-text {
+          font-weight: 700;
+        }
+      }
+
+      .board__item-label {
+        display: inline-block;
+        font-size: 14px;
+      }
+
+      .board__item-text {
+        display: inline-block;
+        font-size: 14px;
+        margin-left: 4px;
+      }
+    }
+
+
+  }
+}
