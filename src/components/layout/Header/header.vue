@@ -17,11 +17,15 @@
         </li>
 
         <li class="header__search">
-          <div class="screen-out">검색</div>
+          <span class="screen-out">검색</span>
+          <global-search />
         </li>
 
         <li class="header__mode">
-          <button :class="`header__mode-button ${state.isDarkMode ? 'dark' : 'light'}`" @click="handleChangeMode">
+          <button
+            :class="`header__mode-button ${state.isDarkMode ? 'dark' : 'light'}`"
+            @click="handleChangeMode"
+          >
             <span class="screen-out">모드변경 버튼</span>
           </button>
         </li>

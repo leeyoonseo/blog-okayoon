@@ -1,0 +1,9 @@
+.base__input {
+  box-sizing: border-box;
+  font-size: 14px;
+  padding: 0 16px;
+
+  &:focus {
+    outline: none;
+  }
+}

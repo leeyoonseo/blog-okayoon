@@ -40,22 +40,23 @@
       .header__search {
         height: 26px;
         margin-left: auto;
-        width: 26px;
-        @include bg-image('icon-search-d', 26px, 26px);
+
+        // width: 26px;
+        // @include bg-image('icon-search-d', 26px, 26px);
       }
 
       .header__mode {
         .header__mode-button {
-          height: 28px;
+          height: 24px;
           vertical-align: top;
-          width: 28px;
+          width: 24px;
 
           &.light {
-            @include bg-image('icon-mode-light', 28px, 28px);
+            @include bg-image('icon-mode-light', 24px, 24px);
           }
 
           &.dark {
-            @include bg-image('icon-mode-dark', 28px, 28px);
+            @include bg-image('icon-mode-dark', 24px, 24px);
           }
         }
       }
