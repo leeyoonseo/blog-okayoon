@@ -8,7 +8,9 @@
       <router-view />
     </div>
 
-    <div class="base__footer">footer</div>
+    <div class="base__footer">
+      <layout-footer />
+    </div>
   </div>
 </template>
 <script lang="ts">

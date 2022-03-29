@@ -1,7 +1,17 @@
-@mixin ellipsis() {
+@mixin ellipsis($lines: 1) {
   display: block;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
   word-wrap: normal !important;
+
+  @if  $lines == 1 {
+    white-space: nowrap;
+  } @else {
+    display: -webkit-box;
+    overflow: hidden;
+    /* stylelint-disable-next-line order/properties-alphabetical-order */
+    -webkit-line-clamp: $lines;
+    /* stylelint-disable-next-line order/properties-alphabetical-order */
+    -webkit-box-orient: vertical;
+  }
 }

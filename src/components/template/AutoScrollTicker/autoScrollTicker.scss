@@ -1,0 +1,44 @@
+.ticker__wrap {
+  .ticker__list {
+    height: 42px;
+    overflow: hidden;
+    position: relative;
+
+    .ticker__item {
+      background: #fafafa;
+      opacity: 0;
+      padding: 10px;
+      position: absolute;
+      transform: rotateX(90deg);
+      transition: transform 0.5s 0.5s, opacity 1s;
+
+      &.active {
+        opacity: 1;
+        transform: rotateX(0);
+      }
+
+      .item__link {
+        cursor: pointer;
+        display: inline-block;
+
+        .item__title {
+          display: inline-block;
+          font-size: 12px;
+          font-weight: 700;
+          margin-bottom: 6px;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+
+        .item__text {
+          display: inline-block;
+          font-size: 11px;
+
+          @include ellipsis(2);
+        }
+      }
+    }
+  }
+}
