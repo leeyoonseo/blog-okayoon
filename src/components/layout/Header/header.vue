@@ -1,13 +1,13 @@
 <template>
-  <div :class="`header__wrap ${state.isSticky ? 'sticky' : ''}`">
+  <div :class="['header__wrap', { sticky: state.isSticky }]">
     <header class="header">
       <ul class="header__inner">
         <li class="header__menu">
-          <button class="header__gnb">
+          <button class="header__gnb" @click="handleMenu">
             <span class="screen-out">메뉴버튼</span>
           </button>
 
-          <!-- <layout-global-nav /> -->
+          <layout-side-menu :active="state.isMenuOpened" :onClose="handleMenu" />
         </li>
 
         <li class="header__logo">
@@ -46,30 +46,34 @@ const state = reactive({
   isLogined: false,
   isDarkMode: false,
   isSticky: false,
+  isMenuOpened: false,
   // stickyStartHeight: 72,
   stickyStartHeight: 0,
 });
 
-
 onMounted(() => {
+  // TODO: throttle
   window.addEventListener('scroll', handleScroll);
 });
 
 onUnmounted(() => {
-  window.removeEventListener("scroll", handleScroll)
-})
-
+  window.removeEventListener('scroll', handleScroll);
+});
 
 const handleScroll = () => {
   const currentY = window.pageYOffset || document.documentElement.scrollTop;
   state.isSticky = currentY > state.stickyStartHeight;
 };
 
+const handleMenu = () => {
+  console.log('handleMenu');
+  state.isMenuOpened = !state.isMenuOpened;
+};
+
 const handleChangeMode = () => {
   console.log('handleChangeMode');
   state.isDarkMode = !state.isDarkMode;
 };
-
 </script>
 <style lang="scss" scoped>
 @import './header';

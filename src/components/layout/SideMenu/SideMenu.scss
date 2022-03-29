@@ -1,0 +1,96 @@
+.sidemenu {
+  background: #ffffff;
+  height: 100vh;
+  left: 0;
+  padding: 0 5%;
+  position: fixed;
+  text-align: left;
+  top: 0;
+  width: 300px;
+  z-index: 1000;
+
+  .sidemenu__inner {
+    height: 100%;
+    position: relative;
+  }
+
+  .sidemenu__button-close {
+    height: 72px;
+    width: 16px;
+    @include bg-image('icon-close-d', 16px, 16px);
+  }
+
+  .sidemenu__list {
+    &-main {
+      & > .sidemenu__item {
+        a {
+          font-size: 16px;
+          font-weight: 600;
+        }
+
+        & + .sidemenu__item {
+          margin-top: 20px;
+        }
+      }
+    }
+
+    &-sub {
+      & > .sidemenu__item {
+        a {
+          font-size: 14px;
+          font-weight: 400;
+        }
+
+        & + .sidemenu__item {
+          margin-top: 4px;
+        }
+
+        &::before {
+          content: '-';
+          display: inline-block;
+          margin-right: 5px;
+        }
+      }
+    }
+
+    .sidemenu__item {
+      & > .sidemenu__list {
+        margin-top: 4px;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .sidemenu__board {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+  }
+}
+
+.sidemenu__overlay {
+  background: rgb(0 0 0 / 30%);
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+// Animations
+.sidemenu-fade-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.sidemenu-fade-leave-active {
+  transition: all 0.5s ease-in;
+}
+
+.sidemenu-fade-enter-from,
+.sidemenu-fade-leave-to {
+  opacity: 0;
+  transform: translateX(-100%);
+}
